@@ -47,11 +47,11 @@ export class DashboardComponent implements OnInit {
       tooltip: {
         backgroundColor: '#04828E',
         useHTML: true,
-        pointformat: '<img src="./assets/medaille.png"> {point.y}',
+        pointFormat: '<span> <img class="medaille" src="../assets/medaille.png"> {point.y}</span>',
         style:{
           color:'#ebebeb',
           fontFamily: 'Segoe UI',
-          fontSize: '1 em!'
+          fontSize: '1 em'
         }
       },
       plotOptions: {
