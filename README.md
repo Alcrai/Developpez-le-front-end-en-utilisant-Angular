@@ -24,4 +24,4 @@ npm run start;
 
 Application run:
 
-http://Loaclhost:4200
+http://Localhost:4200
