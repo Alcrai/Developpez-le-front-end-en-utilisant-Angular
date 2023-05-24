@@ -1,29 +1,27 @@
 # OlympicGamesStarter
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.1.3.
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.2.8.
 
-Don't forget to install your node_modules before starting (`npm install`).
+The purpose of this application is to provide users with a dashboard allowing them to view information from previous Olympic Games (number of medals by country, etc.).
+![P2_Wireframes](https://github.com/Alcrai/Developpez-le-front-end-en-utilisant-Angular/assets/104515431/76503d9d-660e-41e0-9817-d7ff77e4fa4a)
 
-## Development server
+# Start the project
+Git clone:
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+git clone [https://github.com/Alcrai/Developpez-le-front-end-en-utilisant-Angular](https://github.com/Alcrai/Developpez-le-front-end-en-utilisant-Angular.git)
 
-## Build
+Go inside folder:
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+cd Developpez-le-front-end-en-utilisant-Angular
 
-## Where to start
+Install dependencies:
 
-As you can see, an architecture has already been defined for the project. It is just a suggestion, you can choose to use your own. The predefined architecture includes (in addition to the default angular architecture) the following:
+npm install
 
-- `components` folder: contains every reusable components
-- `pages` folder: contains components used for routing
-- `core` folder: contains the business logic (`services` and `models` folders)
+Launch Front-end:
 
-I suggest you to start by understanding this starter code. Pay an extra attention to the `app-routing.module.ts` and the `olympic.service.ts`.
+npm run start;
 
-Once mastered, you should continue by creating the typescript interfaces inside the `models` folder. As you can see I already created two files corresponding to the data included inside the `olympic.json`. With your interfaces, improve the code by replacing every `any` by the corresponding interface.
+Application run:
 
-You're now ready to implement the requested features.
-
-Good luck!
+http://Localhost:4200
