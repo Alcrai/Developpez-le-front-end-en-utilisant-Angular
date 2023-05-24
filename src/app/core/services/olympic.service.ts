@@ -20,10 +20,7 @@ export class OlympicService {
       catchError((error, caught) => {
         this.olympics$.error('An error occured');
         console.error(error);
-        // can be useful to end loading state and let the user know something went wrong
         return [];
-        //this.olympics$.next(null);
-        //return caught;
       })
     );
   }
