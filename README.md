@@ -1,6 +1,6 @@
 # OlympicGamesStarter
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.1.3.
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.2.8.
 
 The purpose of this application is to provide users with a dashboard allowing them to view information from previous Olympic Games (number of medals by country, etc.).
 ![P2_Wireframes](https://github.com/Alcrai/Developpez-le-front-end-en-utilisant-Angular/assets/104515431/76503d9d-660e-41e0-9817-d7ff77e4fa4a)
