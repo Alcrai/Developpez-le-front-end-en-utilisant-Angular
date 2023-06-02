@@ -1,5 +1,5 @@
-import { Component ,OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Component ,OnInit, OnDestroy } from '@angular/core';
+import { Observable, take, Subscription} from 'rxjs';
 import * as Highcharts from 'highcharts';
 import { OlympicService } from 'src/app/core/services/olympic.service';
 import { Olympic } from 'src/app/core/models/Olympic';
@@ -11,7 +11,8 @@ import { Router } from '@angular/router';
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.scss'],
 })
-export class DashboardComponent implements OnInit {
+export class DashboardComponent implements OnInit, OnDestroy {
+  public subcription$!: Subscription;
     numberJO!: number;
     numberCountries:number=0;
     datasPie: DataPie[]=[];
@@ -19,6 +20,7 @@ export class DashboardComponent implements OnInit {
     constructor(private olympicService: OlympicService, private router:Router) {    }
 
     ngOnInit(){
+      this.subcription$=this.olympicService.loadInitialData().pipe(take(1)).subscribe();
         this.olympics$.forEach(value=>{
             for (var i=0; i<value.length;i++){
                 this.numberCountries++;
@@ -28,6 +30,10 @@ export class DashboardComponent implements OnInit {
             Highcharts.chart('container', this.options);
         });
        
+      }
+
+    ngOnDestroy(): void {
+        this.subcription$.unsubscribe();
       }
 
    public options: any = {

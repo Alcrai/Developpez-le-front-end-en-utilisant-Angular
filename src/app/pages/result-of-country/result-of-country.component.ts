@@ -1,5 +1,5 @@
-import { Component , OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Component , OnInit, OnDestroy} from '@angular/core';
+import { Observable, take, Subscription } from 'rxjs';
 import * as Highcharts from 'highcharts';
 import { Olympic } from 'src/app/core/models/Olympic';
 import { OlympicService } from 'src/app/core/services/olympic.service';
@@ -10,7 +10,8 @@ import { ActivatedRoute, Router } from '@angular/router';
   templateUrl: './result-of-country.component.html',
   styleUrls: ['./result-of-country.component.scss']
 })
-export class ResultOfCountryComponent {
+export class ResultOfCountryComponent implements OnInit, OnDestroy{
+  private subcription$!: Subscription;
   idCountry!: number;
   nameCountry!: String;
   numberEntries!:number;
@@ -21,9 +22,10 @@ export class ResultOfCountryComponent {
   Highcharts = Highcharts;
   
 
-  constructor(private olympicService: OlympicService, private route:ActivatedRoute) {    }
+  constructor(private olympicService: OlympicService, private route:ActivatedRoute, private router:Router) {    }
 
   ngOnInit(){
+    this.subcription$=this.olympicService.loadInitialData().pipe(take(1)).subscribe();
     const countryId:number = +this.route.snapshot.params['id'];
     this.idCountry = countryId;
     this.olympics$ = this.olympicService.getOlympics();
@@ -42,6 +44,11 @@ export class ResultOfCountryComponent {
       Highcharts.chart('container',this.linechart);       
     });
   }
+
+
+  ngOnDestroy(): void {
+    this.subcription$.unsubscribe();
+   }
 
   public linechart: any = {
     chart: {
